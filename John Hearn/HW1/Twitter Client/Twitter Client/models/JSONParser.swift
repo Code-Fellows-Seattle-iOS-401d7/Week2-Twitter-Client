@@ -12,7 +12,17 @@ typealias JSONParserCompletion = ( _ success: Bool, _ results: [Tweet]?) -> ()
 
 class JSONParser {
 
-    static var sampleJSONData: Data?
+    static var sampleJSONData: Data{
+        guard let tweetJSONPath = Bundle.main.url(forResource: "Tweet", withExtension: ".json")
+            else { fatalError("There was an error accessing Tweet.json")}
+
+        do {
+            return try Data(contentsOf: tweetJSONPath)
+
+        } catch {
+            fatalError("Failed to convert Tweet.json to data.")
+        }
+    }
 
     class func tweetsFrom(data: Data, completion: JSONParserCompletion){
         do {

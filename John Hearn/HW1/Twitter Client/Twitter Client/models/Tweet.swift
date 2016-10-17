@@ -16,7 +16,7 @@ class Tweet{
 
     init?(json: [String: Any]){
         if  let text = json["text"] as? String,
-            let id = json["is_str"] as? String,
+            let id = json["id_str"] as? String,
             let userDict = json["user"] as? [String: Any] {
 
             self.text = text
