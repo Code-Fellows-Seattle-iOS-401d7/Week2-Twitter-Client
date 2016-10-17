@@ -21,9 +21,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //add one line here for homework -assign delegate or table here
-        // Do any additional setup after loading the view, typically from a nib.
 
+        tableView.delegate = self
+
+        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -44,7 +45,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource{
+extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return allTweets.count
     }
@@ -57,5 +58,9 @@ extension ViewController: UITableViewDataSource{
         cell.detailTextLabel?.text = currentTweet.user?.handle
         
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected cell #\(indexPath.row)!")
     }
 }
