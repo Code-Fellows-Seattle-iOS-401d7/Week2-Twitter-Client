@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //add one line here for homework
+        //add one line here for homework -assign delegate or table here
         // Do any additional setup after loading the view, typically from a nib.
 
     }
@@ -32,9 +32,7 @@ class ViewController: UIViewController {
         JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, results) in
             if success{
                 if let tweets = results{
-                    for tweet in tweets {
-                        print(tweet.text)
-                    }
+                    allTweets = tweets
                 }
             }
         }
@@ -56,6 +54,7 @@ extension ViewController: UITableViewDataSource{
         let currentTweet = self.allTweets[indexPath.row]
 
         cell.textLabel?.text = currentTweet.text
+        cell.detailTextLabel?.text = currentTweet.user?.handle
         
         return cell
     }

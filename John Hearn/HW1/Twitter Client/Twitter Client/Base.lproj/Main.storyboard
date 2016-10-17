@@ -21,7 +21,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I1F-AK-yk4">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="hlu-gc-n2d" detailTextLabel="0Wl-AF-rYY" style="IBUITableViewCellStyleSubtitle" id="XTF-sw-vZx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" textLabel="hlu-gc-n2d" detailTextLabel="0Wl-AF-rYY" style="IBUITableViewCellStyleSubtitle" id="XTF-sw-vZx">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XTF-sw-vZx" id="JN9-FC-wjj">
@@ -46,6 +46,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="3Fb-Kl-iE4"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,10 +59,13 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I1F-AK-yk4" secondAttribute="bottom" id="wX0-VC-WJv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="I1F-AK-yk4" id="ycc-3u-ypl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="-335" y="134"/>
         </scene>
     </scenes>
 </document>

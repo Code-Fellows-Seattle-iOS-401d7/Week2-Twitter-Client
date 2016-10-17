@@ -11,14 +11,17 @@ import Foundation
 class User{
 
     let name: String
+    let handle: String
     let profileImageUrlString: String
     let location: String?
 
     init?(json: [String: Any]) {
         if  let name = json["name"] as? String,
+            let handle = json["screen_name"] as? String,
             let imageString = json["profile_image_url"] as? String {
 
             self.name = name
+            self.handle = handle
             self.profileImageUrlString = imageString
             self.location = json["location"] as? String
         } else {
