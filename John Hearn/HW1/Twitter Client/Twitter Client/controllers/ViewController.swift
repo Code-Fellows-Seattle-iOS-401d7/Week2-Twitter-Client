@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
+        self.tableView.dataSource = self   // We originally set this in the StoryBoard. (Blech)
+        self.tableView.delegate = self
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -30,14 +31,28 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, results) in
-            if success{
-                if let tweets = results{
-                    allTweets = tweets
+//        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, results) in
+//            if success{
+//                if let tweets = results{
+//                    allTweets = tweets
+//                }
+//            }
+//        }
+
+        update()
+
+    }
+
+    func update() {
+        API.shared.getTweets{ (tweets) in
+            if tweets != nil {
+                OperationQueue.main.addOperation {
+                    self.allTweets = tweets!
                 }
             }
         }
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,6 +60,7 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: TableViewDatSource and TableViewDelegate methods
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return allTweets.count

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F20747101DB69E2D00182D75 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207470F1DB69E2D00182D75 /* API.swift */; };
 		F2B746201DB5428600260109 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7461F1DB5428600260109 /* AppDelegate.swift */; };
 		F2B746251DB5428600260109 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B746231DB5428600260109 /* Main.storyboard */; };
 		F2B746271DB5428600260109 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2B746261DB5428600260109 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F207470F1DB69E2D00182D75 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = models/API.swift; sourceTree = "<group>"; };
 		F2B7461C1DB5428600260109 /* Twitter Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B7461F1DB5428600260109 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2B746241DB5428600260109 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				F2B746421DB5537900260109 /* JSONParser.swift */,
 				F2B7463C1DB5533400260109 /* Tweet.swift */,
 				F2B7463D1DB5533400260109 /* User.swift */,
+				F207470F1DB69E2D00182D75 /* API.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				F2B746431DB5537900260109 /* JSONParser.swift in Sources */,
 				F2B746201DB5428600260109 /* AppDelegate.swift in Sources */,
 				F2B7463F1DB5533400260109 /* Tweet.swift in Sources */,
+				F20747101DB69E2D00182D75 /* API.swift in Sources */,
 				F2B746401DB5533400260109 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +344,7 @@
 				F2B746301DB5428600260109 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
