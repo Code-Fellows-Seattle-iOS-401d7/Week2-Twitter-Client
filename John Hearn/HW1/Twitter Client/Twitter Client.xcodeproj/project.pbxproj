@@ -17,6 +17,7 @@
 		F2B746401DB5533400260109 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B7463D1DB5533400260109 /* User.swift */; };
 		F2B746431DB5537900260109 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B746421DB5537900260109 /* JSONParser.swift */; };
 		F2B746451DB5539100260109 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B746441DB5539100260109 /* ViewController.swift */; };
+		F2D9A2B01DB7F4420018A5C7 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D9A2AF1DB7F4420018A5C7 /* TweetTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F2B7463D1DB5533400260109 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		F2B746421DB5537900260109 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = models/JSONParser.swift; sourceTree = "<group>"; };
 		F2B746441DB5539100260109 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = controllers/ViewController.swift; sourceTree = "<group>"; };
+		F2D9A2AF1DB7F4420018A5C7 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TweetTableViewCell.swift; path = views/TweetTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				F2B746341DB543AE00260109 /* Views */,
 				F2B7461F1DB5428600260109 /* AppDelegate.swift */,
 				F2B746231DB5428600260109 /* Main.storyboard */,
+				F2D9A2AF1DB7F4420018A5C7 /* TweetTableViewCell.swift */,
 				F2B746261DB5428600260109 /* Assets.xcassets */,
 				F2B746281DB5428600260109 /* LaunchScreen.storyboard */,
 				F2B7462B1DB5428600260109 /* Info.plist */,
@@ -183,6 +186,7 @@
 				F2B7463F1DB5533400260109 /* Tweet.swift in Sources */,
 				F20747101DB69E2D00182D75 /* API.swift in Sources */,
 				F2B746401DB5533400260109 /* User.swift in Sources */,
+				F2D9A2B01DB7F4420018A5C7 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

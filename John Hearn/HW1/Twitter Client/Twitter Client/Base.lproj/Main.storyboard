@@ -21,51 +21,57 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I1F-AK-yk4">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" textLabel="hlu-gc-n2d" detailTextLabel="0Wl-AF-rYY" style="IBUITableViewCellStyleSubtitle" id="XTF-sw-vZx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" id="XTF-sw-vZx" customClass="TweetTableViewCell" customModule="Twitter_Client" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XTF-sw-vZx" id="JN9-FC-wjj">
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hlu-gc-n2d">
-                                                    <frame key="frameInset" minX="15" minY="4" width="34" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSN-Xs-aWG">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Wl-AF-rYY">
-                                                    <frame key="frameInset" minX="15" minY="25" width="33" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PSN-Xs-aWG" firstAttribute="top" secondItem="JN9-FC-wjj" secondAttribute="top" constant="8" id="Tuf-fx-eUH"/>
+                                                <constraint firstItem="PSN-Xs-aWG" firstAttribute="leading" secondItem="JN9-FC-wjj" secondAttribute="leading" constant="8" id="sQU-5g-Jel"/>
+                                                <constraint firstAttribute="trailing" secondItem="PSN-Xs-aWG" secondAttribute="trailing" constant="8" id="w5d-8h-4lE"/>
+                                                <constraint firstAttribute="bottom" secondItem="PSN-Xs-aWG" secondAttribute="bottom" constant="8" id="whn-8F-ykS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="tweetText" destination="PSN-Xs-aWG" id="luJ-Vo-8yj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="3Fb-Kl-iE4"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZiK-19-z3N"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="I1F-AK-yk4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5KQ-Vk-vfM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZiK-19-z3N" secondAttribute="bottom" id="Bz7-XF-PPA"/>
                             <constraint firstItem="I1F-AK-yk4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HVs-IY-7wE"/>
+                            <constraint firstItem="ZiK-19-z3N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ljf-Iy-yem"/>
                             <constraint firstAttribute="trailing" secondItem="I1F-AK-yk4" secondAttribute="trailing" id="YNT-gV-3CP"/>
+                            <constraint firstItem="ZiK-19-z3N" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="vAP-jU-tnC"/>
+                            <constraint firstAttribute="trailing" secondItem="ZiK-19-z3N" secondAttribute="trailing" id="va1-ds-bgZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I1F-AK-yk4" secondAttribute="bottom" id="wX0-VC-WJv"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="ZiK-19-z3N" id="igE-Be-I8M"/>
                         <outlet property="tableView" destination="I1F-AK-yk4" id="ycc-3u-ypl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-335" y="134"/>
+            <point key="canvasLocation" x="-335.19999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

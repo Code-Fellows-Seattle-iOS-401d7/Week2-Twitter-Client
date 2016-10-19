@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var allTweets = [Tweet]() {
         didSet{
@@ -22,8 +23,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.estimatedRowHeight = 75
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+
         self.tableView.dataSource = self   // We originally set this in the StoryBoard. (Blech)
         self.tableView.delegate = self
+
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -31,23 +36,19 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-//        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, results) in
-//            if success{
-//                if let tweets = results{
-//                    allTweets = tweets
-//                }
-//            }
-//        }
 
         update()
 
     }
 
     func update() {
+
+        activityIndicator.startAnimating()
         API.shared.getTweets{ (tweets) in
             if tweets != nil {
                 OperationQueue.main.addOperation {
                     self.allTweets = tweets!
+                    self.activityIndicator.stopAnimating()
                 }
             }
         }
@@ -67,11 +68,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetTableViewCell
         let currentTweet = self.allTweets[indexPath.row]
 
-        cell.textLabel?.text = currentTweet.text
-        cell.detailTextLabel?.text = currentTweet.user?.handle
+        cell.tweetText.text = currentTweet.text
+        //TODO: Custom cell broke subtitle
+        //cell.detailTextLabel?.text = currentTweet.user?.handle
         
         return cell
     }
