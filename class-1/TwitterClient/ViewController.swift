@@ -11,7 +11,7 @@ import UIKit
 
 
 class ViewController: UIViewController {
-
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         }
     }
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         update()
-
+        
     }
     
     func update(){
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,7 +76,7 @@ extension ViewController: UITableViewDataSource {
     }
     
 }
-// From code review //
+
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
@@ -85,33 +85,10 @@ extension ViewController: UITableViewDelegate {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// code challenge 
-
-var animalsArray = ["Dog", "Cat", "Pig", "Cow"]
-
-func reverseArray: [String] {
-     return animalsArray.reversed()
-}
-
+//// Creating a Serial Queue // 
+//
+//
+//DispatchQueue.init(label: "com.coreymalek.TwitterClient", attr: NULL)
 
 
 

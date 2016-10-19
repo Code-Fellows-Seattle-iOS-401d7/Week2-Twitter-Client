@@ -11,7 +11,7 @@ import Accounts
 import Social
 
 typealias accountCompletion = (ACAccount?) -> ()
-typealias userCompletion = (User) -> ()
+typealias userCompletion = (User?) -> ()
 typealias tweetsCompletion = ([Tweet]?) -> ()
 
 
@@ -42,51 +42,51 @@ class API {
             }
         }
     
-            private func getOAuthUser(completion: @escaping userCompletion) {
+         func getOAuthUser(completion: @escaping userCompletion) {
+            
+            let url = URL(string: "https://api.twitter.com/1.1/account/verify_credentials.json")
+            
+            if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: url, parameters: nil) {
                 
-                let url = URL(string: "https://api.twitter.com/1.1/account/verify_credentials.json")
+                request.account = self.account
                 
-                if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: url, parameters: nil) {
+                request.perform(handler: { (data, response, error) in
+                    if error != nil {
+                        print("Error accessing Twitter to verify credentials.")
+                    }
                     
-                    request.account = self.account
+                    guard response != nil else { completion(nil); return }
+                    guard data != nil else { completion(nil); return }
                     
-                    request.perform(handler: { (data, response, error) in
-                        if error != nil {
-                            print("Error accessing Twitter to verify credentials.")
-                        }
-                        
-                        guard response != nil else { completion(nil); return }
-                        guard data != nil else { completion(nil); return }
-                        
-                        
-                        switch response!.statusCode {
-                        case 200...299:
-                            do {
-                                if let userJSON = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
-                                    completion(User(json: userJSON))
-                                }
-                            } catch {
-                                print("Error: cannot serialize data")
+                    
+                    switch response!.statusCode {
+                    case 200...299:
+                        do {
+                            if let userJSON = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
+                                completion(User(json: userJSON))
                             }
-                            
-                        case 400...499:
-                            print("\(response!.statusCode): Client-side error")
-                        case 500...599:
-                            print("\(response!.statusCode): Server-side error")
-                        default:
-                            print("Unrecognized Status Code")
-                            
+                        } catch {
+                            print("Error: cannot serialize data")
                         }
                         
-                        completion(nil)
+                    case 400...499:
+                        print("\(response!.statusCode): Client-side error")
+                    case 500...599:
+                        print("\(response!.statusCode): Server-side error")
+                    default:
+                        print("Unrecognized Status Code")
                         
-                        
-                    })
+                    }
+                    
+                    completion(nil)
                     
                     
-                }
+                })
+                
                 
             }
+            
+        }
     }
     
             private func updateTimeline(completion: @escaping tweetsCompletion) {
