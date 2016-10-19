@@ -39,6 +39,5 @@ class JSONParser {
             print("Error Serializing JSON", error)
             completion(false, nil)
         }
-
     }
 }

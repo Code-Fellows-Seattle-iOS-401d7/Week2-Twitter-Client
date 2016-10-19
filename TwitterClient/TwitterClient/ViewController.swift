@@ -12,33 +12,27 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    //property obeserver
+    //property observer
     var allTweets = [Tweet]() {
         didSet {
-            tableView.reloadData()
+            OperationQueue.main.addOperation { 
+                self.tableView.reloadData()
+            }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.dataSource = self
-        tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
 
-    //ViewDidAppear() is called every time the view loads
+    //ViewDidAppear() is called every time the view appears on screen
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        //this is becasue JSONParser has a class function we can call.
-        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, results) in
-            if success {
-                if let tweets = results {
-                    allTweets = tweets
-                }
-            }
-        }
-        reverseTwitterArray()
+        update()
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,8 +43,22 @@ class ViewController: UIViewController {
     func reverseTwitterArray() {
         self.allTweets = Utility.reverse(array: allTweets) as! [Tweet]
     }
+
+    func update() {
+        API.shared.getTweets { (tweets, error) in
+            if tweets != nil {
+                print("Background")
+                OperationQueue.main.addOperation {  ////?????
+                    self.allTweets = tweets!
+                    print("Main")
+                }
+            }
+        }
+    }
 }
 
+
+// MARK: TableViewDataSource and TableViewDelegate methods
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allTweets.count
