@@ -2,11 +2,8 @@
 ##Homework
 * Setup your cells with Auto Layout so you can see the entire tweet's text. If you get any `...` at the end that is probably twitters API being annoying.
 * Create a 2nd UIViewController that shows an individual tweet in detail
-* Upon clicking a tweet, your interface should push to the 2nd UIViewController that displays the tweet's details, using labels instead of `print()` statements. Also, a few other caveats:
-  * If the tweet that was selected is a retweet, you should let the user know in some way.
-  * This information is available in the JSON, you just have to go digging for it and add a property to your Tweet class.
+* Upon clicking a tweet, your interface should push to the 2nd UIViewController that displays the tweet's details, using labels instead of `print()` statements.
 * Create a ProfileViewController that when presented, shows the logged in user's profile information. Utilize the NavigationBar to add a button to present this new viewController.
-* Programmatically support dynamic type in your `ViewController.swift` class.  
 
 ###Reading Assignment:
 * Apple Documentation:
