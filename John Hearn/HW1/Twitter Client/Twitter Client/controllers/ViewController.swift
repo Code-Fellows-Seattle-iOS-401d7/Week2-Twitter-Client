@@ -36,9 +36,21 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-
         update()
 
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        if segue.identifier == "showDetailSegue"{
+            let selectedIndex = tableView.indexPathForSelectedRow!.row
+            let selectedTweet = self.allTweets[selectedIndex]
+
+            if let destinationViewController = segue.destination as? DetailViewController{
+                destinationViewController.tweet = selectedTweet
+            }
+        }
     }
 
     func update() {

@@ -18,6 +18,7 @@
 		F2B746431DB5537900260109 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B746421DB5537900260109 /* JSONParser.swift */; };
 		F2B746451DB5539100260109 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B746441DB5539100260109 /* ViewController.swift */; };
 		F2D9A2B01DB7F4420018A5C7 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D9A2AF1DB7F4420018A5C7 /* TweetTableViewCell.swift */; };
+		F2D9A2B21DB8038A0018A5C7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D9A2B11DB8038A0018A5C7 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F2B746421DB5537900260109 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = models/JSONParser.swift; sourceTree = "<group>"; };
 		F2B746441DB5539100260109 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = controllers/ViewController.swift; sourceTree = "<group>"; };
 		F2D9A2AF1DB7F4420018A5C7 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TweetTableViewCell.swift; path = views/TweetTableViewCell.swift; sourceTree = "<group>"; };
+		F2D9A2B11DB8038A0018A5C7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = controllers/DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				F2B746441DB5539100260109 /* ViewController.swift */,
+				F2D9A2B11DB8038A0018A5C7 /* DetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				F20747101DB69E2D00182D75 /* API.swift in Sources */,
 				F2B746401DB5533400260109 /* User.swift in Sources */,
 				F2D9A2B01DB7F4420018A5C7 /* TweetTableViewCell.swift in Sources */,
+				F2D9A2B21DB8038A0018A5C7 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
