@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Accounts
 
 
 
@@ -14,6 +15,10 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
+    
     
     var allTweets = [Tweet]() {
         didSet {
@@ -29,7 +34,8 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        //instatiating UITableViewDelegate on line 56 allows us to write tableView.delegate on line 30. Otherwise it wouldn't know what it is a delegate of and return an error.
+        self.tableView.estimatedRowHeight = 75
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
     }
     
@@ -37,16 +43,42 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        // Example Of Creating A Serial Queue
         
+//        let mySerialQueue = OperationQueue()   // create an instance of Operation Queue
+//        mySerialQueue.maxConcurrentOperationCount = 1 // use this method and set it = 1, implying that this operation would only happen once 
+////        mySerialQueue.addOperation { // then you would use the addOperation method to add functionality to the queue.
+//            <#code#>
+//        }
+
         update()
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "showDetailSegue" {
+            let selectedIndex = tableView.indexPathForSelectedRow!.row
+            let selectedTweet = self.allTweets[selectedIndex]
+            
+            if let destinationViewController = segue.destination as? DetailViewController {
+                destinationViewController.tweet = selectedTweet
+            }
+        }
+    }
+    
     func update(){
+        
+        activityIndicator.startAnimating()
+        
         API.shared.getTweets { (tweets) in
             if tweets != nil {
+                
                 OperationQueue.main.addOperation {
                     self.allTweets = tweets!
+                    self.activityIndicator.stopAnimating()
+                    
                 }
             }
         }
@@ -65,11 +97,11 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetTableViewCell 
         
         let currentTweet = self.allTweets[indexPath.row]
         
-        cell.textLabel?.text = currentTweet.text
+        cell.tweetCellLabel.text = currentTweet.text
         
         return cell
         
@@ -82,13 +114,6 @@ extension ViewController: UITableViewDelegate {
         print(indexPath.row)
     }
 }
-
-
-
-//// Creating a Serial Queue // 
-//
-//
-//DispatchQueue.init(label: "com.coreymalek.TwitterClient", attr: NULL)
 
 
 
