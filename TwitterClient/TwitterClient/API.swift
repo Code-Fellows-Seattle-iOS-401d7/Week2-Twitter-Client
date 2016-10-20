@@ -23,8 +23,6 @@ class API {
         let accountStore = ACAccountStore()
         let accountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
 
-
-        //where the async call starts here???
         accountStore.requestAccessToAccounts(with: accountType, options: nil, completion: ({ (success, error) in
             if error != nil {
                 print("ERROR: Requesting access to Twitter account")
@@ -81,7 +79,7 @@ class API {
         }
     }
 
-    private func updateTimeline(completion: @escaping tweetsCompletion) {
+    private func updateTimeline(completion:  @escaping tweetsCompletion) {
 
         let url = URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
 
@@ -99,14 +97,15 @@ class API {
                 switch response!.statusCode {
                 case 200...299:
                     print("Success")
-                    JSONParser.tweetsFrom(data: data!) { (success, tweets) in
+                    JSONParser.tweetsFrom(data: data!, completion: { (success, tweets) in
 //                      if success {
 //                          completion(tweets)
 //                       } else {
 //                           completion(nil)
 //                       }
+                        //self.APItweets = tweets // what happens if the tweets are not arrived yet?
                         completion(tweets, error?.localizedDescription) //tweets is an optional, so it's ok to send nil or tweets object here.
-                    }
+                    }) 
                 case 400...499:
                     print("/(response?.statusCode): Client-side error")
                 case 500...599:
@@ -123,14 +122,22 @@ class API {
         //OperationQueue().addOperation {
         if self.account != nil {
             self.updateTimeline(completion: completion)
-        }
-
-        self.login { (account, error ) in
-            if account != nil {
-                API.shared.account = account!
-                self.updateTimeline(completion: completion)
+        } else {
+            self.login { (account, error ) in
+                if account != nil {
+                    API.shared.account = account!
+                    self.updateTimeline(completion: completion)
+                }
+                completion(nil, error)
             }
-            completion(nil, error)
+        }
+    }
+
+    func getUser(completion: @escaping userCompletion) {
+        if self.account != nil {
+            self.getOAuthUser { (user, error) in
+                completion(user, error)
+            }
         }
     }
 }

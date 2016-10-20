@@ -24,6 +24,12 @@ class JSONParser {
 
     class func tweetsFrom(data: Data, completion: JSONParserCompletion) {
         do {
+            if OperationQueue.current == OperationQueue.main {
+                print("TWEETSFROM func: on Main Thread")
+            } else {
+                print("TWEETSFROM func: on background thread")
+            }
+
             if let rootObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:Any]] {
                 //[[String:Any]] means and array of dictionaries
                 var tweets = [Tweet]()

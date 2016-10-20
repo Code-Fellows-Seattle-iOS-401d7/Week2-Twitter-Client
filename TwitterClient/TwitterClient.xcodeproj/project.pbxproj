@@ -18,6 +18,9 @@
 		BDD364661DB54F840079FBA6 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD364651DB54F840079FBA6 /* JSONParser.swift */; };
 		BDD364681DB57F2F0079FBA6 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD364671DB57F2F0079FBA6 /* Utility.swift */; };
 		BDD3646A1DB69EAB0079FBA6 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD364691DB69EAB0079FBA6 /* API.swift */; };
+		BDE7BB9E1DB7F436000E0133 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BB9D1DB7F436000E0133 /* TweetTableViewCell.swift */; };
+		BDE7BBA21DB8041D000E0133 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BBA11DB8041D000E0133 /* DetailViewController.swift */; };
+		BDE7BBA41DB8781A000E0133 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BBA31DB8781A000E0133 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		BDD364651DB54F840079FBA6 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		BDD364671DB57F2F0079FBA6 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		BDD364691DB69EAB0079FBA6 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		BDE7BB9D1DB7F436000E0133 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		BDE7BBA11DB8041D000E0133 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BDE7BBA31DB8781A000E0133 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 		BDD3646B1DB72D310079FBA6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BDE7BB9D1DB7F436000E0133 /* TweetTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -102,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				BDD3644E1DB5429E0079FBA6 /* ViewController.swift */,
+				BDE7BBA11DB8041D000E0133 /* DetailViewController.swift */,
+				BDE7BBA31DB8781A000E0133 /* ProfileViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -179,13 +188,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE7BBA21DB8041D000E0133 /* DetailViewController.swift in Sources */,
 				BDD3644F1DB5429E0079FBA6 /* ViewController.swift in Sources */,
+				BDE7BBA41DB8781A000E0133 /* ProfileViewController.swift in Sources */,
 				BDD364661DB54F840079FBA6 /* JSONParser.swift in Sources */,
 				BDD364681DB57F2F0079FBA6 /* Utility.swift in Sources */,
 				BDD3644D1DB5429E0079FBA6 /* AppDelegate.swift in Sources */,
 				BDD364611DB543D40079FBA6 /* User.swift in Sources */,
 				BDD364631DB543DD0079FBA6 /* Tweet.swift in Sources */,
 				BDD3646A1DB69EAB0079FBA6 /* API.swift in Sources */,
+				BDE7BB9E1DB7F436000E0133 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     //property observer
     var allTweets = [Tweet]() {
@@ -26,6 +27,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.tableView.dataSource = self
         self.tableView.delegate = self
+
+        self.tableView.estimatedRowHeight = 125
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     //ViewDidAppear() is called every time the view appears on screen
@@ -40,17 +44,43 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "showDetailSegue" {
+            let selectedIndex = tableView.indexPathForSelectedRow!.row
+            let selectedTweet = self.allTweets[selectedIndex]
+
+            if let destinationViewController = segue.destination as? DetailViewController {
+                destinationViewController.tweet = selectedTweet
+            }
+        } else if segue.identifier == "showProfile" {
+            if let destinationViewController = segue.destination as? ProfileViewController {
+            }
+        }
+    }
+
+
     func reverseTwitterArray() {
         self.allTweets = Utility.reverse(array: allTweets) as! [Tweet]
     }
 
+    func checkThreads() {
+        if OperationQueue.current == OperationQueue.main {
+            print("on Main Thread")
+        } else {
+            print("on background thread")
+        }
+    }
+
     func update() {
+        activityIndicator.startAnimating()
         API.shared.getTweets { (tweets, error) in
             if tweets != nil {
-                print("Background")
-                OperationQueue.main.addOperation {  ////?????
+                self.checkThreads()
+                OperationQueue.main.addOperation {
+                    self.activityIndicator.stopAnimating()
                     self.allTweets = tweets!
-                    print("Main")
+                    self.checkThreads()
                 }
             }
         }
@@ -65,12 +95,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetTableViewCell
         let currentTweet = self.allTweets[indexPath.row]
-
-        //textLabel and detailTextLabel comes for free
-        cell.textLabel?.text = currentTweet.text
-        cell.detailTextLabel?.text = currentTweet.user?.name
+        cell.tweetText.text = "==>" + currentTweet.text
 
         return cell
     }
