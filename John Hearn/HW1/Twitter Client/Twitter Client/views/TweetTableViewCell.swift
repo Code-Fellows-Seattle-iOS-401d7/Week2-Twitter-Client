@@ -10,14 +10,41 @@ import UIKit
 
 class TweetTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var tweetText: UILabel!
+    @IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var handleLabel: UILabel!
 
+    var tweet: Tweet!{
+        didSet{
+            self.tweetTextLabel.text = tweet.text
+            if let user = tweet.user{
+                self.handleLabel.text = user.handle
 
-    
+                if let image = SimpleCache.shared.image(key: user.profileImageUrlString) {
+                    userImageView.image = image
+                    return
+
+                }
+
+                // refactor this into something readable
+                API.shared.getImageFor(urlString: user.profileImageUrlString, completion: {(image) in
+                    if image != nil {
+                        SimpleCache.shared.set(key: user.profileImageUrlString, image: image!)
+                        self.userImageView.image = image!
+                    }
+                })
+            }
+        }
+    }
+
+    func handleImageCompletion(image: UIImage) {
+
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

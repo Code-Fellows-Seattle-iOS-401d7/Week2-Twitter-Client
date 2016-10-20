@@ -29,6 +29,9 @@ class ViewController: UIViewController {
         self.tableView.dataSource = self   // We originally set this in the StoryBoard. (Blech)
         self.tableView.delegate = self
 
+        let nib = UINib(nibName: "TweetCell", bundle: Bundle.main)
+        self.tableView.register(nib, forCellReuseIdentifier: TweetTableViewCell.identifier())
+
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -43,7 +46,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        if segue.identifier == "showDetailSegue"{
+        if segue.identifier == "DetailViewControllerSegue"{
             let selectedIndex = tableView.indexPathForSelectedRow!.row
             let selectedTweet = self.allTweets[selectedIndex]
 
@@ -80,17 +83,22 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TweetTableViewCell.identifier(), for: indexPath) as? TweetTableViewCell
         let currentTweet = self.allTweets[indexPath.row]
 
-        cell.tweetText.text = currentTweet.text
+
+        cell?.tweet = currentTweet
+        // Storyboard implementation:
+        //cell.tweetTextLabel.text = currentTweet.text
+
         //TODO: Custom cell broke subtitle
         //cell.detailTextLabel?.text = currentTweet.user?.handle
         
-        return cell
+        return cell!
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You selected cell #\(indexPath.row)!")
+        self.performSegue(withIdentifier: "DetailViewControllerSegue", sender: nil)
     }
+
 }

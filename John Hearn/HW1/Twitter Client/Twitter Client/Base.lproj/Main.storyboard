@@ -20,33 +20,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I1F-AK-yk4">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" id="XTF-sw-vZx" customClass="TweetTableViewCell" customModule="Twitter_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XTF-sw-vZx" id="JN9-FC-wjj">
-                                            <frame key="frameInset" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSN-Xs-aWG">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="PSN-Xs-aWG" firstAttribute="top" secondItem="JN9-FC-wjj" secondAttribute="top" constant="8" id="Tuf-fx-eUH"/>
-                                                <constraint firstItem="PSN-Xs-aWG" firstAttribute="leading" secondItem="JN9-FC-wjj" secondAttribute="leading" constant="8" id="sQU-5g-Jel"/>
-                                                <constraint firstAttribute="trailing" secondItem="PSN-Xs-aWG" secondAttribute="trailing" constant="8" id="w5d-8h-4lE"/>
-                                                <constraint firstAttribute="bottom" secondItem="PSN-Xs-aWG" secondAttribute="bottom" constant="8" id="whn-8F-ykS"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="tweetText" destination="PSN-Xs-aWG" id="luJ-Vo-8yj"/>
-                                            <segue destination="beo-L1-uEE" kind="show" identifier="showDetailSegue" id="FhY-eh-kyw"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
+                                <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3zA-hT-hJj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.53022668421886898" green="0.92370523322752129" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </imageView>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="3Fb-Kl-iE4"/>
                                 </connections>
@@ -69,6 +47,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="ZiK-19-z3N" id="igE-Be-I8M"/>
                         <outlet property="tableView" destination="I1F-AK-yk4" id="ycc-3u-ypl"/>
+                        <segue destination="beo-L1-uEE" kind="show" identifier="DetailViewControllerSegue" id="Lic-1g-QfR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

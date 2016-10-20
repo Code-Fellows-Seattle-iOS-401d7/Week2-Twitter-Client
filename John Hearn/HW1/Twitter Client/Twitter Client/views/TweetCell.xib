@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetTableViewCell" rowHeight="103" id="6EF-sb-4d1" customClass="TweetTableViewCell" customModule="Twitter_Client" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6EF-sb-4d1" id="ciS-hQ-fWA">
+                <frame key="frameInset" width="375" height="96"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="alj-t5-amB">
+                        <color key="backgroundColor" red="0.52825308195022058" green="0.92026703066601512" blue="0.99627781413612571" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Puo-gU-L07"/>
+                            <constraint firstAttribute="height" constant="80" id="SSw-Fg-6tF"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Handle label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EF7-y0-5a9">
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Text Details" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0X-xz-VJH">
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="s0X-xz-VJH" firstAttribute="top" secondItem="EF7-y0-5a9" secondAttribute="bottom" constant="8" id="2Mk-6A-MmL"/>
+                    <constraint firstItem="alj-t5-amB" firstAttribute="top" secondItem="ciS-hQ-fWA" secondAttribute="top" constant="8" id="2zz-QF-ZZa"/>
+                    <constraint firstAttribute="trailing" secondItem="EF7-y0-5a9" secondAttribute="trailing" constant="8" id="36a-ce-HYG"/>
+                    <constraint firstItem="alj-t5-amB" firstAttribute="leading" secondItem="ciS-hQ-fWA" secondAttribute="leading" constant="8" id="FFL-VS-CmO"/>
+                    <constraint firstItem="EF7-y0-5a9" firstAttribute="leading" secondItem="alj-t5-amB" secondAttribute="trailing" constant="8" id="LVK-gY-Pud"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="s0X-xz-VJH" secondAttribute="bottom" constant="8" id="Lsn-Wx-JBC"/>
+                    <constraint firstAttribute="trailing" secondItem="s0X-xz-VJH" secondAttribute="trailing" constant="8" id="TjI-EA-0qS"/>
+                    <constraint firstItem="s0X-xz-VJH" firstAttribute="leading" secondItem="alj-t5-amB" secondAttribute="trailing" constant="8" id="YGv-EU-Fx4"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="alj-t5-amB" secondAttribute="bottom" constant="8" id="sSy-sh-byu"/>
+                    <constraint firstItem="EF7-y0-5a9" firstAttribute="top" secondItem="ciS-hQ-fWA" secondAttribute="top" constant="8" id="zx5-Er-MNb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="handleLabel" destination="EF7-y0-5a9" id="99n-gH-VlD"/>
+                <outlet property="tweetTextLabel" destination="s0X-xz-VJH" id="0Fy-Tw-f4I"/>
+                <outlet property="userImageView" destination="alj-t5-amB" id="PpH-Dw-hFR"/>
+            </connections>
+            <point key="canvasLocation" x="37" y="-22"/>
+        </tableViewCell>
+    </objects>
+</document>
