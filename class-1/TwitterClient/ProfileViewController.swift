@@ -1,28 +1,25 @@
 //
-//  DetailController.swift
+//  ProfileViewController.swift
 //  TwitterClient
 //
-//  Created by Corey Malek on 10/19/16.
+//  Created by Corey Malek on 10/20/16.
 //  Copyright © 2016 Corey Malek. All rights reserved.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class ProfileViewController: UIViewController {
+    @IBOutlet weak var profileName: UILabel!
     
-    @IBOutlet weak var displayHandle: UILabel!
-   
-    @IBOutlet weak var displayIndTweet: UILabel!
-    
-    var tweet: Tweet!
+    var user: User!
 
+    @IBAction func backButton(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            self.displayHandle.text = tweet.user!.name
-            self.displayIndTweet.text = tweet.text
-        
-        
+            self.profileName.text = user.name
 
         // Do any additional setup after loading the view.
     }

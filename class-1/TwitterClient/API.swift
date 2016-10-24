@@ -9,10 +9,12 @@
 import Foundation
 import Accounts
 import Social
+import UIKit
 
 typealias accountCompletion = (ACAccount?) -> ()
 typealias userCompletion = (User?) -> ()
 typealias tweetsCompletion = ([Tweet]?) -> ()
+typealias imageCompletion = (UIImage?) -> ()
 
 
 class API {
@@ -42,7 +44,8 @@ class API {
             }
         }
     
-         func getOAuthUser(completion: @escaping userCompletion) {
+    }
+        private func getOAuthUser(completion: @escaping userCompletion) {
             
             let url = URL(string: "https://api.twitter.com/1.1/account/verify_credentials.json")
             
@@ -87,22 +90,22 @@ class API {
             }
             
         }
-    }
+
     
-            private func updateTimeline(completion: @escaping tweetsCompletion) {
-                let url = URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
-                
+    private func updateTimeline(url: String ,completion: @escaping tweetsCompletion) {
+//                let url = URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
+        
                 if let request = SLRequest(
                     forServiceType: SLServiceTypeTwitter,
                     requestMethod: .GET,
-                    url: url,
+                    url: URL(string: url),
                     parameters: nil) {
                     
                     request.account = self.account
                     
                     request.perform(handler: { (data, response, error) in
                         if error != nil {
-                            print("Error: Fetching Home Timeline")
+                            print("Fetching Home Timeline Failed")
                             completion(nil)
                         }
                         
@@ -117,9 +120,6 @@ class API {
                                 }
                                 completion(nil)
                             })
-                            
-                            
-                            
                             
                         case 400...499:
                             print("\(response!.statusCode): Client-side error")
@@ -137,25 +137,47 @@ class API {
                 
             }
 
-
-            func getTweets(completion: @escaping tweetsCompletion) {
+    func getUserAccount(completion: @escaping userCompletion) {
+        if self.account != nil {
+           self.getOAuthUser(completion: completion)
+        }
+        completion(nil)
+        // add something here in case there is no user account
+    }
+    
+    func getUserTweetsFor(username: String, completion: @escaping tweetsCompletion) {
+        
+        self.updateTimeline(url: "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=\(username)", completion: completion)
+        
+    }
+    
+    func getImageFor(urlString: String, completion: @escaping imageCompletion) {
+        
+        OperationQueue().addOperation {
+            guard let url = URL(string: urlString) else { return }
+            
+            print(url)
+            
+            
+            do {
+                let data = try Data(contentsOf: url)
+                guard let image = UIImage(data: data) else { return }
                 
-                if self.account != nil {
-                    self.updateTimeline(completion: completion)
+                OperationQueue.main.addOperation {
+                    completion(image)
                 }
-                
-                self.login { (account) in
-                    if account != nil {
-                        API.shared.account = account!
-                        self.updateTimeline(completion: completion)
-                    }
+            } catch {
+                print("There was an error getting the data from the url for the UIImage.")
+                OperationQueue.main.addOperation {
                     completion(nil)
                 }
             }
+            
+        }
+        
+    }
+
 }
-
-
-
 
 
 
