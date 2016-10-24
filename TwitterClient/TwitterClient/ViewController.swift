@@ -30,6 +30,9 @@ class ViewController: UIViewController {
 
         self.tableView.estimatedRowHeight = 125
         self.tableView.rowHeight = UITableViewAutomaticDimension
+
+        let nib = UINib(nibName: "TweetCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: TweetTableViewCell.identifier())
     }
 
     //ViewDidAppear() is called every time the view appears on screen
@@ -89,21 +92,21 @@ class ViewController: UIViewController {
 
 
 // MARK: TableViewDataSource and TableViewDelegate methods
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension ViewController: UITableViewDataSource , UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allTweets.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TweetTableViewCell.identifier(), for: indexPath) as! TweetTableViewCell
         let currentTweet = self.allTweets[indexPath.row]
-        cell.tweetText.text = "==>" + currentTweet.text
-
+        cell.tweet = currentTweet
+        tableView.headerView(forSection: 1)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("indexPath.row value is: ", indexPath.row)
+        self.performSegue(withIdentifier: "showDetailSegue", sender: nil)
     }
 }
 

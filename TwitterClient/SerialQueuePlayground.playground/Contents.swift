@@ -3,6 +3,14 @@
 import UIKit
 
 
+let todayTitle : String? = "today"
+print("1", todayTitle)
+print("2", todayTitle!)
+if let theTitle = todayTitle {
+    print("3", theTitle)
+}
+
+
 //Adding a dependency for an operation before another operation, makes the execution serial.
 
 var op1 = Operation()

@@ -21,6 +21,10 @@
 		BDE7BB9E1DB7F436000E0133 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BB9D1DB7F436000E0133 /* TweetTableViewCell.swift */; };
 		BDE7BBA21DB8041D000E0133 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BBA11DB8041D000E0133 /* DetailViewController.swift */; };
 		BDE7BBA41DB8781A000E0133 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BBA31DB8781A000E0133 /* ProfileViewController.swift */; };
+		BDE7BBA61DB95DB0000E0133 /* SimpleCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BBA51DB95DB0000E0133 /* SimpleCache.swift */; };
+		BDE7BBA81DB96637000E0133 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BBA71DB96637000E0133 /* UIExtensions.swift */; };
+		BDE7BBAA1DB9687A000E0133 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDE7BBA91DB9687A000E0133 /* TweetCell.xib */; };
+		BDE7BBD01DBC19AB000E0133 /* UserTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BBCF1DBC19AB000E0133 /* UserTimelineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		BDE7BB9D1DB7F436000E0133 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		BDE7BBA11DB8041D000E0133 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BDE7BBA31DB8781A000E0133 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BDE7BBA51DB95DB0000E0133 /* SimpleCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCache.swift; sourceTree = "<group>"; };
+		BDE7BBA71DB96637000E0133 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		BDE7BBA91DB9687A000E0133 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
+		BDE7BBCF1DBC19AB000E0133 /* UserTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimelineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 				BDD364671DB57F2F0079FBA6 /* Utility.swift */,
 				BDD3644C1DB5429E0079FBA6 /* AppDelegate.swift */,
 				BDD364501DB5429E0079FBA6 /* Main.storyboard */,
+				BDE7BBA91DB9687A000E0133 /* TweetCell.xib */,
 				BDD364531DB5429E0079FBA6 /* Assets.xcassets */,
 				BDD364551DB5429E0079FBA6 /* LaunchScreen.storyboard */,
 				BDD364581DB5429E0079FBA6 /* Info.plist */,
@@ -93,6 +102,8 @@
 				BDD364621DB543DD0079FBA6 /* Tweet.swift */,
 				BDD364651DB54F840079FBA6 /* JSONParser.swift */,
 				BDD364691DB69EAB0079FBA6 /* API.swift */,
+				BDE7BBA71DB96637000E0133 /* UIExtensions.swift */,
+				BDE7BBA51DB95DB0000E0133 /* SimpleCache.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -109,8 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				BDD3644E1DB5429E0079FBA6 /* ViewController.swift */,
-				BDE7BBA11DB8041D000E0133 /* DetailViewController.swift */,
 				BDE7BBA31DB8781A000E0133 /* ProfileViewController.swift */,
+				BDE7BBA11DB8041D000E0133 /* DetailViewController.swift */,
+				BDE7BBCF1DBC19AB000E0133 /* UserTimelineViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -175,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD364571DB5429E0079FBA6 /* LaunchScreen.storyboard in Resources */,
+				BDE7BBAA1DB9687A000E0133 /* TweetCell.xib in Resources */,
 				BDD364541DB5429E0079FBA6 /* Assets.xcassets in Resources */,
 				BDD364521DB5429E0079FBA6 /* Main.storyboard in Resources */,
 				BDD3645F1DB5430A0079FBA6 /* Twitter.json in Resources */,
@@ -191,10 +204,13 @@
 				BDE7BBA21DB8041D000E0133 /* DetailViewController.swift in Sources */,
 				BDD3644F1DB5429E0079FBA6 /* ViewController.swift in Sources */,
 				BDE7BBA41DB8781A000E0133 /* ProfileViewController.swift in Sources */,
+				BDE7BBA81DB96637000E0133 /* UIExtensions.swift in Sources */,
 				BDD364661DB54F840079FBA6 /* JSONParser.swift in Sources */,
+				BDE7BBA61DB95DB0000E0133 /* SimpleCache.swift in Sources */,
 				BDD364681DB57F2F0079FBA6 /* Utility.swift in Sources */,
 				BDD3644D1DB5429E0079FBA6 /* AppDelegate.swift in Sources */,
 				BDD364611DB543D40079FBA6 /* User.swift in Sources */,
+				BDE7BBD01DBC19AB000E0133 /* UserTimelineViewController.swift in Sources */,
 				BDD364631DB543DD0079FBA6 /* Tweet.swift in Sources */,
 				BDD3646A1DB69EAB0079FBA6 /* API.swift in Sources */,
 				BDE7BB9E1DB7F436000E0133 /* TweetTableViewCell.swift in Sources */,

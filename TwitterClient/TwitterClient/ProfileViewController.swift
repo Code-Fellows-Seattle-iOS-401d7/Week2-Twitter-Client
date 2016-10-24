@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userLocation: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var image: UIImageView!
-    var user: User!
+    var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
