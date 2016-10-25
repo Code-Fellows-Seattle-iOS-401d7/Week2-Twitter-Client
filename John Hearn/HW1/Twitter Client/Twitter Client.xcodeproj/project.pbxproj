@@ -82,7 +82,6 @@
 				F2B746391DB5442300260109 /* Controllers */,
 				F2D9A2B91DB97C580018A5C7 /* Extensions */,
 				F2B7461F1DB5428600260109 /* AppDelegate.swift */,
-				F2B746231DB5428600260109 /* Main.storyboard */,
 				F2B746261DB5428600260109 /* Assets.xcassets */,
 				F2B746281DB5428600260109 /* LaunchScreen.storyboard */,
 				F2B7462B1DB5428600260109 /* Info.plist */,
@@ -105,6 +104,7 @@
 		F2B746341DB543AE00260109 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F2B746231DB5428600260109 /* Main.storyboard */,
 				F2D9A2B31DB939E50018A5C7 /* TweetCell.xib */,
 				F2D9A2AF1DB7F4420018A5C7 /* TweetTableViewCell.swift */,
 			);

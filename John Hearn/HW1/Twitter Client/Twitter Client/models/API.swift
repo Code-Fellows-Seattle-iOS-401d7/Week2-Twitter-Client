@@ -76,12 +76,11 @@ class API{
                     } catch {
                         print("Error: Cannot serialize Data")
                     }
-                case 400...499: print("\(response!.statusCode): Client-Side error")
-                case 500...599: print("\(response!.statusCode): Server-Side error")
-                default:        print("Response came bach with unrecognized status code")
+                case 400...499: print("\(response!.statusCode): Client-Side error"); completion(nil)
+                case 500...599: print("\(response!.statusCode): Server-Side error"); completion(nil)
+                default:        print("Response came bach with unrecognized status code"); completion(nil)
 
                 }
-                completion(nil)  // still need this?
             })
         }
     }
@@ -112,11 +111,10 @@ class API{
                         }
                         completion(nil)
                     })
-                case 400...499: print("\(response!.statusCode): Client-Side error")
-                case 500...599: print("\(response!.statusCode): Server-Side error")
-                default:        print("Response came bach with unrecognized status code.")
+                case 400...499: print("\(response!.statusCode): Client-Side error"); completion(nil)
+                case 500...599: print("\(response!.statusCode): Server-Side error"); completion(nil)
+                default:        print("Response came bach with unrecognized status code."); completion(nil)
                 }
-                completion(nil)
             })
 
         }
@@ -173,8 +171,9 @@ class API{
     func getUserAccount(completion: @escaping userCompletion) {
         if self.account != nil {
             self.getOAuthUser(completion: completion)
+        } else {
+            completion(nil)
         }
-        completion(nil)
     }
 }
 
