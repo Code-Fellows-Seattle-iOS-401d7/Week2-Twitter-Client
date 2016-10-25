@@ -22,6 +22,7 @@
 		F2D9A2B41DB939E50018A5C7 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2D9A2B31DB939E50018A5C7 /* TweetCell.xib */; };
 		F2D9A2B61DB95DA00018A5C7 /* SimpleCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D9A2B51DB95DA00018A5C7 /* SimpleCache.swift */; };
 		F2D9A2B81DB966F70018A5C7 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D9A2B71DB966F70018A5C7 /* UIExtensions.swift */; };
+		F2F54B211DBEE93000F632B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F54B201DBEE93000F632B7 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		F2D9A2B31DB939E50018A5C7 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TweetCell.xib; path = views/TweetCell.xib; sourceTree = "<group>"; };
 		F2D9A2B51DB95DA00018A5C7 /* SimpleCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleCache.swift; path = models/SimpleCache.swift; sourceTree = "<group>"; };
 		F2D9A2B71DB966F70018A5C7 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIExtensions.swift; path = extensions/UIExtensions.swift; sourceTree = "<group>"; };
+		F2F54B201DBEE93000F632B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				F2B746441DB5539100260109 /* ViewController.swift */,
 				F2D9A2B11DB8038A0018A5C7 /* DetailViewController.swift */,
+				F2F54B201DBEE93000F632B7 /* ProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				F2D9A2B81DB966F70018A5C7 /* UIExtensions.swift in Sources */,
 				F2B746201DB5428600260109 /* AppDelegate.swift in Sources */,
 				F2B7463F1DB5533400260109 /* Tweet.swift in Sources */,
+				F2F54B211DBEE93000F632B7 /* ProfileViewController.swift in Sources */,
 				F20747101DB69E2D00182D75 /* API.swift in Sources */,
 				F2B746401DB5533400260109 /* User.swift in Sources */,
 				F2D9A2B01DB7F4420018A5C7 /* TweetTableViewCell.swift in Sources */,

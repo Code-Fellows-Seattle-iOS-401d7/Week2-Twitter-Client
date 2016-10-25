@@ -9,6 +9,7 @@
 import Foundation
 import Accounts
 import Social
+import UIKit
 
 
 typealias accountCompletion = (ACAccount?)->()
@@ -56,6 +57,7 @@ class API{
             request.perform(handler: { (data, response, error) in
                 if error != nil{
                     print("Error accessing Twitter to verify credentials")
+                    completion(nil)
                 }
 
                 guard response != nil else { completion(nil); return }
@@ -79,7 +81,7 @@ class API{
                 default:        print("Response came bach with unrecognized status code")
 
                 }
-                completion(nil)
+                completion(nil)  // still need this?
             })
         }
     }
@@ -101,6 +103,7 @@ class API{
                 guard response != nil else { completion(nil); return }
                 guard data != nil else { completion(nil); return }
 
+                // Should really make this switch DRY (see above)
                 switch response!.statusCode{
                 case 200...299:
                     JSONParser.tweetsFrom(data: data!, completion: { (success, tweets) in
@@ -121,16 +124,16 @@ class API{
 
 
     func getTweets(completion: @escaping tweetsCompletion){
-        let myURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        let homeTimelineURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
 
         if self.account != nil{
-            self.updateTimeline(url: myURL, completion: completion)
+            self.updateTimeline(url: homeTimelineURL, completion: completion)
         }
 
         self.login { (account) in
             if account != nil {
                 API.shared.account = account!
-                self.updateTimeline(url: myURL, completion: completion)
+                self.updateTimeline(url: homeTimelineURL, completion: completion)
                 
             }
             completion(nil)
@@ -165,6 +168,13 @@ class API{
             }
 
         }
+    }
+
+    func getUserAccount(completion: @escaping userCompletion) {
+        if self.account != nil {
+            self.getOAuthUser(completion: completion)
+        }
+        completion(nil)
     }
 }
 

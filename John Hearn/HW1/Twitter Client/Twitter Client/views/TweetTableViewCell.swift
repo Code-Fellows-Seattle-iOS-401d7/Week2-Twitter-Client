@@ -38,6 +38,7 @@ class TweetTableViewCell: UITableViewCell {
     }
 
     func handleImageCompletion(image: UIImage) {
+        // put refactored completion here (for readibility)
 
     }
 

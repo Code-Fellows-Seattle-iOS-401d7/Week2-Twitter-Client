@@ -10,11 +10,27 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var userDetailLabel: UILabel!
+    @IBOutlet weak var tweetDetailLabel: UILabel!
+    
+
     var tweet: Tweet!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        userDetailLabel.text = tweet.user?.name
+        tweetDetailLabel.text = tweet.text
+
+        API.shared.getImageFor(urlString: (tweet.user?.profileImageUrlString)!, completion: {(image) in
+            if image != nil {
+                SimpleCache.shared.set(key: (self.tweet.user?.profileImageUrlString)!, image: image!)
+                self.profileImageView.image = image!
+            }
+        })
+
 
         print("User's name: \(tweet.user!.name)")
         print("Tweet Text: \(tweet.text)")
