@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CWW-K3-AAH">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" textLabel="6j7-ZJ-Pyg" detailTextLabel="E3m-CX-vRW" style="IBUITableViewCellStyleSubtitle" id="V5Q-Lg-0b7">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V5Q-Lg-0b7" id="hKW-Q1-rFn">
+                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6j7-ZJ-Pyg">
+                                                    <frame key="frameInset" minX="15" minY="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E3m-CX-vRW">
+                                                    <frame key="frameInset" minX="15" minY="25.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Shg-U0-FBr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CWW-K3-AAH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Flr-MY-sqZ"/>
+                            <constraint firstAttribute="trailing" secondItem="CWW-K3-AAH" secondAttribute="trailing" id="JjH-sp-AbF"/>
+                            <constraint firstAttribute="trailing" secondItem="CWW-K3-AAH" secondAttribute="trailing" id="Lun-Qd-CI6"/>
+                            <constraint firstItem="CWW-K3-AAH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Z7U-p9-k7Q"/>
+                            <constraint firstItem="CWW-K3-AAH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ca7-AA-joj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CWW-K3-AAH" secondAttribute="bottom" id="e3h-hR-XJP"/>
+                            <constraint firstItem="CWW-K3-AAH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="eUd-SF-UJw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CWW-K3-AAH" secondAttribute="bottom" id="f3H-l6-s4W"/>
+                            <constraint firstAttribute="trailing" secondItem="CWW-K3-AAH" secondAttribute="trailing" id="kfG-wa-umc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CWW-K3-AAH" secondAttribute="bottom" id="lj8-LU-N5i"/>
+                            <constraint firstItem="CWW-K3-AAH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zI3-gV-buE"/>
+                            <constraint firstItem="CWW-K3-AAH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zxl-La-LE4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="CWW-K3-AAH" id="3wY-gT-Wqu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="97.601199400299862"/>
+        </scene>
+    </scenes>
+</document>
